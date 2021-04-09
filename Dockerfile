@@ -1,0 +1,20 @@
+FROM docker:latest
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache \
+    py-pip \
+    py3-yaml \
+    && apk add --no-cache --virtual .docker-compose-deps \
+    gcc \
+    libc-dev \
+    libffi-dev \
+    make \
+    openssl-dev \
+    python3-dev \
+    py3-cryptography \
+    py3-bcrypt \
+    py3-pynacl \
+    && pip3 install --upgrade pip \
+    && pip3 install docker-compose \
+    && apk del .docker-compose-deps \
+    && rm -rf /var/cache/apk/ && rm -rf /root/.cache

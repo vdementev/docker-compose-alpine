@@ -2,6 +2,12 @@ FROM docker:latest
 RUN apk update && \
     apk upgrade && \
     apk add --no-cache \
+    git \
+    git-lfs \
+    ca-certificates \
+    curl \
+    openssh-client \
+    rsync \
     py-pip \
     py3-yaml \
     && apk add --no-cache --virtual .docker-compose-deps \

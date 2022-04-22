@@ -10,6 +10,7 @@ RUN apk update && \
     rsync \
     py-pip \
     py3-yaml \
+    composer \
     && apk add --no-cache --virtual .docker-compose-deps \
     gcc \
     libc-dev \
